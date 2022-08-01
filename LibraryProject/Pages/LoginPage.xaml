@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryProject.MainPage"
+             Title="Login"
+             BackgroundColor="{AppThemeBinding Default=#99ccff}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+            <Style TargetType="Button" x:Key="buttonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#3399ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default= White}" />
+            </Style>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#cce6ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <ScrollView>
+        
+        <VerticalStackLayout 
+            Margin="25,10"
+            Spacing="15" 
+            VerticalOptions="Start"
+            MaximumWidthRequest="352">
+
+            <Label Text="Welcome back!"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Padding="0,10,0,0"
+                   Style="{StaticResource labelStyle}"/>
+
+            <Image
+                Source="books.png"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+                
+            <Label 
+                Text="Member Login:"
+                TextColor="DimGray"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Padding="0,10,0,0"/>
+
+            <HorizontalStackLayout
+                
+                Spacing="15"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="Username:"
+                    FontSize="14"
+                    VerticalTextAlignment="Center"
+                    TextColor="DimGray"/>
+
+                <Entry
+                    x:Name="LoginUsername"
+                    WidthRequest="200"
+                    Style="{StaticResource entryStyle}"/>
+
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout
+                
+                Spacing="15"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="Password:"
+                    FontSize="14"
+                    VerticalTextAlignment="Center"
+                    TextColor="DimGray"/>
+
+                <Entry
+                    x:Name="LoginPassword"
+                    IsPassword="True"
+                    WidthRequest="205"
+                    Style="{StaticResource entryStyle}"/>
+
+            </HorizontalStackLayout>
+            
+            <Button 
+                x:Name="LoginButton"
+                Text="Login"
+                Clicked="OnLoginButtonClicked"
+                HorizontalOptions="Center"
+                WidthRequest="300"
+                Style="{StaticResource buttonStyle}"/>
+
+            <Button
+                x:Name="RegisterButton"
+                Text="Register"
+                Clicked="OnRegisterButtonClicked" 
+                HorizontalOptions="Center"
+                WidthRequest="300"
+                Style="{StaticResource buttonStyle}"/>
+
+            <Label
+                />
+
+            <Button
+                
+                x:Name="AdminLoginButton"
+                WidthRequest="300"
+                Text="Admin login"
+                Clicked="OnAdminButtonClicked"
+                Style="{StaticResource buttonStyle}" />
+            
+        </VerticalStackLayout>
+
+
+
+    </ScrollView>
+ 
+</ContentPage>

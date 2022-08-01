@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryProject.BranchSelectionPage"
+             xmlns:viewModels="clr-namespace:LibraryProject.ViewModels"
+             Title="Select your branch"
+             BackgroundColor="{AppThemeBinding Default=#99ccff}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+            <Style TargetType="Button" x:Key="buttonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#3399ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default= White}" />
+            </Style>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#cce6ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout 
+        Margin="10,20,10,20"
+        Spacing="20">
+
+        <ScrollView MaximumHeightRequest="520" VerticalScrollBarVisibility="Always">
+
+            <StackLayout>
+
+                <CollectionView 
+                    SelectionMode="Single"
+                    x:Name ="collectionView"
+                    HorizontalOptions="CenterAndExpand"
+                    SelectedItem="SelectedBranch"
+                    ItemsSource="{Binding Branches}">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid 
+                                ColumnSpacing="20"
+                                Margin="25,20,25,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="120"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+
+                                    Grid.Row="0"
+                                    Text="{Binding Name}"/>
+
+                                <Image
+                                    Grid.Column="1"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding Image}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <HorizontalStackLayout 
+            HorizontalOptions="Center"
+            Spacing="15">
+            
+            <Button
+                x:Name="SelectBranchButton"
+                Text="Enter Library Branch" 
+                Style="{StaticResource buttonStyle}"
+                WidthRequest="200"
+                Clicked="EnterSelectedBranchButtonClick"/>
+
+            <Button
+                x:Name="AddBranchButton"
+                Text="Add a new branch"
+                BackgroundColor="#52E246"
+                Clicked="AddBranchButtonClick"
+                IsVisible="false" 
+                WidthRequest="200"/>
+
+            <Button
+                x:Name="DeleteBranchButton"
+                Text="Delete selected branch" 
+                BackgroundColor="Red"
+                Clicked="DeleteBranchButtonClick"
+                WidthRequest="200"/>
+
+        </HorizontalStackLayout>
+
+
+
+    </VerticalStackLayout>
+
+</ContentPage>

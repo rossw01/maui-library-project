@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryProject.AddBranchPage"
+             Title="Add a branch"
+             BackgroundColor="{AppThemeBinding Default=#99ccff}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+            <Style TargetType="Button" x:Key="buttonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#3399ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default= White}" />
+            </Style>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#cce6ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout
+        Margin="25,25"
+        Spacing="15"
+        MaximumWidthRequest="500">
+        
+        <Label 
+            Text="Add a new Library branch:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="20"
+            FontAttributes="Bold"
+            Style="{StaticResource labelStyle}"/>
+
+        <Label
+            Text="Adding a new branch will create a new library system which can be used by a Library to manage their collection, or by users to view the collection of the Library."
+            FontSize="12"
+            TextColor="RoyalBlue"/>
+
+        <Label
+            Text="Branch name:"
+            FontSize="14"
+            Style="{StaticResource labelStyle}"/>
+
+        <Entry
+            x:Name="NewBranchNameEntry"
+            Style="{StaticResource entryStyle}"/>
+
+        <Button
+            Text="Upload a photo..."
+            VerticalOptions="Center"
+            Clicked="BranchPhotoSelection"
+            WidthRequest="150"
+            Style="{StaticResource buttonStyle}"/>
+
+        <Label
+            Text="Image Preview:"
+            HorizontalOptions="Center"
+            Style="{StaticResource labelStyle}"/>
+
+        <Image
+            x:Name="selectedImage" 
+            HeightRequest="300"
+            WidthRequest="300"
+            HorizontalOptions="Center"/>
+
+        <HorizontalStackLayout
+            Spacing="20"
+            Padding="20,20,20,20"
+            HorizontalOptions="Center">
+
+            <Button
+                Text="Cancel"
+                Clicked="OnCancelButtonClick"
+                WidthRequest="150"
+                Style="{StaticResource buttonStyle}" />
+
+            <Button
+                Text="Create branch"
+                Clicked="OnCreateBranchClick"
+                WidthRequest="150"
+                BackgroundColor="#52E246"
+                Style="{StaticResource buttonStyle}" />
+
+        </HorizontalStackLayout>
+        
+    </VerticalStackLayout>
+    
+</ContentPage>

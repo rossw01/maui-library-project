@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryProject.LibraryPage"
+             Title="Library"
+             BackgroundColor="{AppThemeBinding Default=#99ccff}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+            <Style TargetType="Button" x:Key="buttonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#3399ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default= White}" />
+            </Style>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#cce6ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+        <Label
+            x:Name="Test" />
+
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button
+            x:Name="TestButton"
+            Text="Test Button! Click me!"
+            VerticalOptions="Center"
+            Clicked="OnTestButtonClick"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

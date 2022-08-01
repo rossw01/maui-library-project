@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryProject.RegisterPage"
+             Title="Create a new account"
+             BackgroundColor="{AppThemeBinding Default=#99ccff}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+            <Style TargetType="Button" x:Key="buttonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#3399ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default= White}" />
+            </Style>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Default=#cce6ff}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Default=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout
+        Margin="25,20"
+        Spacing="10"
+        MaximumWidthRequest="500">
+
+        <Label 
+            Text="Register your new account:"
+            FontAttributes="Bold"
+            FontSize="20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start"
+            Padding="0,20,0,20"
+            Style="{StaticResource labelStyle}"/>
+
+        <Grid>
+            <Label
+                Grid.Column="0"
+                Text="Username:"
+                TextColor="Gray"
+                HorizontalOptions="StartAndExpand"/>
+
+            <Label
+                Grid.Column="1"
+                Text="Must be at least 6 characters in length."
+                TextColor="Gray"
+                FontSize="8"
+                VerticalTextAlignment="End"
+                HorizontalOptions="End"/>
+        </Grid>
+
+        <Entry
+            x:Name="RegisterUsername"
+            Style="{StaticResource entryStyle}"/>
+
+        <Grid>
+            <Label
+                Text="Password:"
+                TextColor="Gray"
+                HorizontalOptions="StartAndExpand"/>
+
+            <Label
+                Text="Must be at least 6 characters in length and contain a number."
+                TextColor="Gray"
+                FontSize="8"
+                VerticalTextAlignment="End"
+                HorizontalOptions="End"/>
+        </Grid>
+
+        <Entry
+            x:Name="RegisterPassword"
+            IsPassword="True"
+            Style="{StaticResource entryStyle}"/>
+
+        <Label
+                Text="Confirm Password:"
+                TextColor="Gray"
+                HorizontalOptions="Start"/>
+
+        <Entry
+            x:Name="RegisterPasswordConfirm"
+            IsPassword="True"
+            Style="{StaticResource entryStyle}"/>
+
+        <Label/>
+
+        <Button
+            x:Name="RegisterButton"
+            HorizontalOptions="End"
+            Text="Register"
+            WidthRequest="150"
+            Clicked="RegisterButtonClick"
+            Style="{StaticResource buttonStyle}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
